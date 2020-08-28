@@ -1,0 +1,11 @@
+{
+  "name": "fast-log",
+  "version": "0.0.1",
+  "description": "Simple logger library for JavaScript",
+  "main": "index.js",
+  "author": "primitive",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@primitive0/js-io": "^0.0.1"
+  }
+}
