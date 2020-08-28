@@ -1,8 +1,8 @@
 {
-  "name": "fast-log",
+  "name": "@primitive0/fast-log",
   "version": "0.0.1",
-  "description": "Simple logger library for JavaScript",
-  "main": "index.js",
+  "description": "Super simple logger library for JavaScript",
+  "main": "src/index.js",
   "author": "primitive",
   "license": "Apache-2.0",
   "dependencies": {

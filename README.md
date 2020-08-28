@@ -1,26 +1,21 @@
 # fast-log
 
-## Usage
-
-1. Import logger with scope.
+## Super simple library for logging (supports colors!)
 
 ```javascript
-// Node.JS
-const logger = require('@primitive0/fast-log').scope('my-scope');
+const loglib = require('@primitive0/fast-log');
 
-// TypeScript
-import { ScopedLogger } from '@primitive0/fast-log'
-const logger = ScopedLogger('my-scope');
-```
+//Simple logger
+const logger = loglib.Logger;
 
-2. Use!
+logger.info('This is info');             // [info] This is info
+logger.warn('Warning!');                 // [warn] Warning!
+logger.error('Unhandled exception...');  // [error] Unhandled exception...
 
-```javascript
-logger.info('Hello there!');
-```
+//Advanced logger that supports scopes
+const logger = loglib.ScopedLogger('some-useful-module');
 
-Console output:
-
-**Imagine colorful picture**
-
-`[info] [my-scope] Hello there!`
+//Output using the same lines of code
+//[some-useful-module] [info] This is info
+//[some-useful-module] [warn] Warning!
+//[some-useful-module] [error] Unhandled exception...
