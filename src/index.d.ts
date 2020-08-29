@@ -4,5 +4,11 @@ declare interface Logger {
     error(str: string): void;
 }
 
-export function ScopedLogger(scope: string): Logger;
+declare interface LoggingFunctions extends Logger {
+    write_current_time(): void;
+}
+
+
+export const LoggingFunctions: LoggingFunctions;
 export const Logger: Logger;
+export function ScopedLogger(scope: string): Logger;

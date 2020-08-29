@@ -1,15 +1,15 @@
 const { stdout, colors } = require("@primitive0/js-io");
 
 
-const INFO_MSG_HEADER = `[${colors.custom_color(39, false)}info${colors.RESET_COLOR}] `;
-const WARN_MSG_HEADER = `[${colors.custom_color(202, false)}warn${colors.RESET_COLOR}] `;
-const ERR_MSG_HEADER = `[${colors.custom_color(160, false)}error${colors.RESET_COLOR}] `;
+const INFO_MSG_HEADER = `[${colors.custom_color(39, false)}info${colors.RESET}] `;
+const WARN_MSG_HEADER = `[${colors.custom_color(202, false)}warn${colors.RESET}] `;
+const ERR_MSG_HEADER = `[${colors.custom_color(160, false)}error${colors.RESET}] `;
 
 const SCOPE_COLOR = colors.custom_color(35, false);
 
 
-//simple logger
-const Logger = {
+//logging functions
+const LoggingFunctions = {
     info(str) {
         stdout.write(INFO_MSG_HEADER);
         stdout.writeln(str);
@@ -23,10 +23,32 @@ const Logger = {
     error(str) {
         stdout.write(ERR_MSG_HEADER);
         stdout.writeln(str);
+    },
+
+    write_current_time() {
+        stdout.write(`[${colors.custom_color(11)}${new Date().toLocaleDateString()}${colors.RESET}] `);
     }
 };
 
-//logger that supports scopes
+//simple logger (logs time and some info)
+const Logger = {
+    info(str) {
+        LoggingFunctions.write_current_time();
+        LoggingFunctions.info(str);
+    },
+
+    warn(str) {
+        LoggingFunctions.write_current_time();
+        LoggingFunctions.warn(str);
+    },
+
+    error(str) {
+        LoggingFunctions.write_current_time();
+        LoggingFunctions.error(str);
+    }
+};
+
+//advanced logger that supports scopes
 const scopes = {};
 
 function ScopedLogger(scope) {
@@ -43,24 +65,27 @@ class ScopedLoggerClass {
     }
 
     _write_scope() {
-        stdout.write(`[${SCOPE_COLOR}${this.scope}${colors.RESET_COLOR}] `);
+        stdout.write(`[${SCOPE_COLOR}${this.scope}${colors.RESET}] `);
     }
 
     info(str) {
+        LoggingFunctions.write_current_time();
         this._write_scope();
-        Logger.info(str);
+        LoggingFunctions.info(str);
     }
 
     warn(str) {
+        LoggingFunctions.write_current_time();
         this._write_scope();
-        Logger.warn(str);
+        LoggingFunctions.warn(str);
     }
 
     error(str) {
+        LoggingFunctions.write_current_time();
         this._write_scope();
-        Logger.error(str);
+        LoggingFunctions.error(str);
     }
 }
 
 
-module.exports = { Logger, ScopedLogger };
+module.exports = { LoggingFunctions, Logger, ScopedLogger };
