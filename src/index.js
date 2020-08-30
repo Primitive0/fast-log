@@ -26,7 +26,10 @@ const LoggingFunctions = {
     },
 
     write_current_time() {
-        stdout.write(`[${colors.custom_color(11)}${new Date().toLocaleDateString()}${colors.RESET}] `);
+        const date = new Date();
+        const formatted = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}.${date.getMilliseconds()}`;
+
+        stdout.write(`[${colors.custom_color(244)}${formatted}${colors.RESET}] `);
     }
 };
 

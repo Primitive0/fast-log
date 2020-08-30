@@ -1,6 +1,6 @@
 {
   "name": "@primitive0/fast-log",
-  "version": "0.0.2",
+  "version": "0.0.2-1",
   "description": "Super simple logger library for JavaScript",
   "main": "src/index.js",
   "types": "src/index.d.ts",
