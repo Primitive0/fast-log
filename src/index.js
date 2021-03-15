@@ -1,11 +1,11 @@
-const { stdout, colors } = require("@primitive0/js-io");
+const { stdout, colors } = require("@primitive0/js-stdout");
 
 
-const INFO_MSG_HEADER = `[${colors.custom_color(39, false)}info${colors.RESET}] `;
-const WARN_MSG_HEADER = `[${colors.custom_color(202, false)}warn${colors.RESET}] `;
-const ERR_MSG_HEADER = `[${colors.custom_color(160, false)}error${colors.RESET}] `;
+const INFO_MSG_HEADER = `[${colors.custom_color(39)}info${colors.RESET}] `;
+const WARN_MSG_HEADER = `[${colors.custom_color(202)}warn${colors.RESET}] `;
+const ERR_MSG_HEADER = `[${colors.custom_color(160)}error${colors.RESET}] `;
 
-const SCOPE_COLOR = colors.custom_color(35, false);
+const SCOPE_COLOR = colors.custom_color(35);
 
 
 //logging functions
